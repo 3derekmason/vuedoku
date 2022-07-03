@@ -2,7 +2,7 @@
 
 <template>
   <main>
-    <h1>Sudoku vue</h1>
+    <h1>Sudoku vue app</h1>
   </main>
 </template>
 
