@@ -1,5 +1,5 @@
 const checkRowLength = (row) => {
-  // Make sure input row is exactly 9 long
+  // Return true or false whether row is exactly 9 long
   return row.length === 9;
 };
 
