@@ -24,7 +24,6 @@ const defineBoxes = (arrayOfRows) => {
       if (count % 3 === 0) {
         box++;
       }
-
       count++;
     });
   });
