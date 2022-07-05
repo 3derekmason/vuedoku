@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <div></div>
+  <div class="appbar">Appbar</div>
 </template>
 
 <style scoped></style>

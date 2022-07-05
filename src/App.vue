@@ -1,8 +1,20 @@
-<script setup></script>
+<script>
+import PuzzleContainer from "./components/PuzzleContainer/PuzzleContainer.vue";
+import AppBar from "./components/AppBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    AppBar,
+    PuzzleContainer,
+  },
+};
+</script>
 
 <template>
   <main>
-    <h1>Sudoku vue app</h1>
+    <AppBar />
+    <PuzzleContainer />
   </main>
 </template>
 
