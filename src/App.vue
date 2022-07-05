@@ -20,4 +20,9 @@ export default {
 
 <style>
 @import "./assets/base.css";
+
+main {
+  display: grid;
+  place-content: center;
+}
 </style>
