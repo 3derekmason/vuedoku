@@ -10,9 +10,11 @@
   --background: #121212;
   --bg-teal: #004d40;
   --bg-teal-soft: #00796b;
-  --bg-teal-mute: #00796b80;
+  --bg-teal-mute: #00796b50;
   --font-white: #fefefe;
   --font-teal: #e0f2f1;
+  --color-selected: #64ffda;
+  --color-selected-soft: #a7ffeb;
 }
 
 body {

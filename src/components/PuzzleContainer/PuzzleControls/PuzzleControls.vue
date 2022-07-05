@@ -25,11 +25,11 @@ export default {
 
 <style scoped>
 .puzzleControls {
+  background: var(--bg-teal-mute);
   width: 100%;
   height: 88px;
   border-top: 0.5px solid #ffffff80;
   display: flex;
-  color: #fefefe;
   font-weight: 200;
   justify-content: center;
   align-items: center;

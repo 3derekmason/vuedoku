@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .container {
+  background: var(--bg-teal-mute);
   width: 800px;
   height: calc(100vh - 88px);
   border-left: 0.5px solid #ffffff80;
