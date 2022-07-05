@@ -8,6 +8,7 @@
 .container {
   width: 800px;
   height: calc(100vh - 88px);
-  border: 1px solid #fff;
+  border-left: 0.5px solid #ffffff80;
+  border-right: 0.5px solid #ffffff80;
 }
 </style>

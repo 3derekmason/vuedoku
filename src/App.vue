@@ -13,16 +13,21 @@ export default {
 
 <template>
   <main>
-    <AppBar />
-    <PuzzleContainer />
+    <div class="app">
+      <AppBar />
+      <PuzzleContainer />
+    </div>
   </main>
 </template>
 
 <style>
 @import "./assets/base.css";
 
-main {
-  display: grid;
-  place-content: center;
+.app {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

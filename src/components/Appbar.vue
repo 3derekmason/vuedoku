@@ -7,7 +7,7 @@
       <p>Read about the app</p>
       <a href="">Logic</a>
       <a href="">UI</a>
-      <a href="">Logic + UI/UX"</a>
+      <a href="">Logic + UI/UX</a>
     </div>
   </div>
 </template>
@@ -16,6 +16,7 @@
 .appbar {
   padding-left: 40px;
   padding-right: 40px;
+  border-bottom: 0.5px solid #ffffff80;
   display: flex;
   align-items: center;
   justify-content: space-between;
