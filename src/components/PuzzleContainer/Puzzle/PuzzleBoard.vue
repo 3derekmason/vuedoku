@@ -42,5 +42,6 @@ export default {
   background: #ffffff20;
   display: flex;
   flex-wrap: wrap;
+  box-shadow: 0 2px 2px var(--font-teal);
 }
 </style>

@@ -6,20 +6,15 @@ export default {
   components: {
     PuzzleCell,
   },
+  props: {
+    rowData: Array,
+  },
 };
 </script>
 
 <template>
   <div class="puzzleRow">
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
-    <PuzzleCell />
+    <PuzzleCell v-for="i in rowData" :key="i" :value="i" />
   </div>
 </template>
 
@@ -27,7 +22,10 @@ export default {
 .puzzleRow {
   width: 100%;
   height: calc(100% / 9);
-  border: 0.5px solid #ffffff60;
+  border: 0.5px solid var(--font-teal-transparent);
   display: flex;
+}
+.puzzleRow:nth-child(3n) {
+  border-bottom: 1px solid var(--font-teal);
 }
 </style>
