@@ -11,7 +11,14 @@ export default {
 
 <template>
   <div class="puzzleControls">
-    <div class="undo"></div>
+    <div class="undo">
+      <img
+        class="icon"
+        src="/public/assets/undo-arrow.png"
+        width="20"
+        alt="undo"
+      />
+    </div>
     <NumberSelector />
   </div>
 </template>
@@ -22,14 +29,27 @@ export default {
   height: 88px;
   border-top: 0.5px solid #ffffff80;
   display: flex;
+  color: #fefefe;
+  font-weight: 200;
   justify-content: center;
   align-items: center;
   gap: 24px;
 }
-
 .puzzleControls .undo {
-  width: 48px;
+  width: 32px;
   aspect-ratio: 1/1;
-  border: 1px solid white;
+  display: grid;
+  place-content: center;
+}
+
+.undo .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(106deg)
+    brightness(105%) contrast(106%);
+}
+
+.undo .icon:hover {
+  filter: invert(80%) sepia(58%) saturate(195%) hue-rotate(109deg)
+    brightness(103%) contrast(102%);
+  cursor: pointer;
 }
 </style>

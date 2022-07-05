@@ -21,7 +21,8 @@ export default {
 .numberSelector {
   width: 80%;
   height: 48px;
-  border: 1px solid white;
+  border: 0.5px solid #ffffff80;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,5 +36,6 @@ export default {
 }
 .numberSelector .selection:hover {
   font-size: 2em;
+  cursor: pointer;
 }
 </style>
