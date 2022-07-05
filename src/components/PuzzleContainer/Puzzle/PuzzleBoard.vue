@@ -1,7 +1,13 @@
 <script></script>
 
 <template>
-  <div></div>
+  <div class="puzzleBoard"></div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.puzzleBoard {
+  width: 400px;
+  aspect-ratio: 1/1;
+  background: #ffffff20;
+}
+</style>
