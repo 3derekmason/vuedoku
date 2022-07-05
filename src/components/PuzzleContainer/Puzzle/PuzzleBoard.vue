@@ -6,20 +6,32 @@ export default {
   components: {
     PuzzleRow,
   },
+  props: { rowData: Array },
+  data() {
+    return {
+      completeBoard: [
+        [3, 9, 1, 2, 8, 6, 5, 7, 4],
+        [4, 8, 7, 3, 5, 9, 1, 2, 6],
+        [6, 5, 2, 7, 1, 4, 8, 3, 9],
+        [8, 7, 5, 4, 3, 1, 6, 9, 2],
+        [2, 1, 3, 9, 6, 7, 4, 8, 5],
+        [9, 6, 4, 5, 2, 8, 7, 1, 3],
+        [1, 4, 9, 6, 7, 3, 2, 5, 8],
+        [5, 3, 8, 1, 4, 2, 9, 6, 7],
+        [7, 2, 6, 8, 9, 5, 3, 4, 1],
+      ],
+    };
+  },
 };
 </script>
 
 <template>
   <div class="puzzleBoard">
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
-    <PuzzleRow />
+    <PuzzleRow
+      v-for="row in completeBoard"
+      :key="completeBoard.indexOf(row)"
+      :rowData="row"
+    />
   </div>
 </template>
 
