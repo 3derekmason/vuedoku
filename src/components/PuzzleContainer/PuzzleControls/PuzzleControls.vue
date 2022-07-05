@@ -14,7 +14,7 @@ export default {
     <div class="undo">
       <img
         class="icon"
-        src="/src/assets/undo-arrow.png"
+        src="../../../assets/undo-arrow.png"
         width="20"
         alt="undo"
       />
