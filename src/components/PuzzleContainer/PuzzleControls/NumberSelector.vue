@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      isSelected: false,
     };
   },
 };
@@ -11,8 +12,16 @@ export default {
 
 <template>
   <div class="numberSelector">
-    <div class="selection" v-for="number in numbers" :key="number">
-      <p>{{ numbers[number - 1] }}</p>
+    <div
+      class="selection"
+      v-for="number in numbers"
+      :key="number"
+      @click="isSelected = number"
+    >
+      <p v-if="isSelected === number" class="selected">
+        {{ numbers[number - 1] }}
+      </p>
+      <p v-else>{{ numbers[number - 1] }}</p>
     </div>
   </div>
 </template>
@@ -29,13 +38,19 @@ export default {
   gap: 8px;
 }
 .numberSelector .selection {
+  font-weight: 200;
   width: calc(80% / 9);
   display: grid;
   place-content: center;
-  font-size: 1.5em;
+  font-size: 20px;
 }
 .numberSelector .selection:hover {
-  font-size: 2em;
+  font-size: 24px;
   cursor: pointer;
+}
+.selection .selected {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-selected);
 }
 </style>
