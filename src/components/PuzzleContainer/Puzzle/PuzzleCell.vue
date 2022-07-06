@@ -20,7 +20,6 @@ export default {
   border: 0.5px solid #ffffff80;
   display: grid;
   place-content: center;
-  border: 1px solid transparent;
 }
 .puzzleCell:nth-child(3n) {
   border-right: 1px solid var(--font-teal);

@@ -13,3 +13,12 @@ it("returns flase if length of input array is not 9", () => {
   expect(checkRowLength(shortRow)).toBe(false);
   expect(checkRowLength(longRow)).toBe(false);
 });
+
+it("returns flase if input is not valid", () => {
+  const testObject = { a: 1, b: 2 };
+  const testString = "This is not a valid input";
+  const testNumber = 123456789;
+  expect(checkRowLength(testObject)).toBe(false);
+  expect(checkRowLength(testString)).toBe(false);
+  expect(checkRowLength(testNumber)).toBe(false);
+});
