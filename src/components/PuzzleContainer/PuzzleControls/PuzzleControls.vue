@@ -8,6 +8,7 @@ export default {
   },
   props: {
     activeValue: Number,
+    toggleActive: Function,
   },
 };
 </script>
@@ -22,8 +23,7 @@ export default {
         alt="undo"
       />
     </div>
-
-    <NumberSelector />
+    <NumberSelector :activeValue="activeValue" :toggleActive="toggleActive" />
   </div>
 </template>
 

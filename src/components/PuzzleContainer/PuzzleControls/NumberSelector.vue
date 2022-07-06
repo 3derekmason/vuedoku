@@ -1,6 +1,10 @@
 <script>
 export default {
   name: "PuzzleControls",
+  props: {
+    activeValue: Number,
+    toggleActive: Function,
+  },
   data() {
     return {
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -16,7 +20,12 @@ export default {
       class="selection"
       v-for="number in numbers"
       :key="number"
-      @click="isSelected = number"
+      @click="
+        () => {
+          isSelected = number;
+          toggleActive(number);
+        }
+      "
     >
       <p v-if="isSelected === number" class="selected">
         {{ numbers[number - 1] }}

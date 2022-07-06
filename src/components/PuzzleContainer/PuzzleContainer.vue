@@ -10,13 +10,21 @@ export default {
   data: () => ({
     activeValue: 0,
   }),
+  methods: {
+    toggleActive(input) {
+      this.activeValue = input;
+    },
+  },
 };
 </script>
 
 <template>
   <div class="container">
     <PuzzleBoard />
-    <PuzzleControls :activeValue="this.activeValue" />
+    <PuzzleControls
+      :activeValue="this.activeValue"
+      :toggleActive="this.toggleActive"
+    />
   </div>
 </template>
 
