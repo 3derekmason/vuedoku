@@ -7,13 +7,16 @@ export default {
     PuzzleBoard,
     PuzzleControls,
   },
+  data: () => ({
+    activeValue: 0,
+  }),
 };
 </script>
 
 <template>
   <div class="container">
     <PuzzleBoard />
-    <PuzzleControls />
+    <PuzzleControls :activeValue="this.activeValue" />
   </div>
 </template>
 

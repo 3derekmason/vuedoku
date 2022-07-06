@@ -6,6 +6,9 @@ export default {
   components: {
     NumberSelector,
   },
+  props: {
+    activeValue: Number,
+  },
 };
 </script>
 
@@ -19,6 +22,7 @@ export default {
         alt="undo"
       />
     </div>
+
     <NumberSelector />
   </div>
 </template>
