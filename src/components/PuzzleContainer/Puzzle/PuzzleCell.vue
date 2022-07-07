@@ -12,7 +12,9 @@ export default {
   },
   methods: {
     editCell() {
-      this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
+      if (this.activeValue) {
+        this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
+      } else console.error(new Error("No number has been selected"));
     },
   },
 };
