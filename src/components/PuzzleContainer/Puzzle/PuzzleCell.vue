@@ -9,7 +9,6 @@ export default {
     toggleActive: Function,
     completeBoard: Array,
     editBoard: Function,
-    validateBoard: Function,
   },
   methods: {
     editCell() {
@@ -29,8 +28,6 @@ export default {
     @click="
       () => {
         editCell();
-        toggleActive(0);
-        validateBoard();
       }
     "
   >

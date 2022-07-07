@@ -13,7 +13,6 @@ export default {
     toggleActive: Function,
     completeBoard: Array,
     editBoard: Function,
-    validateBoard: Function,
   },
 };
 </script>
@@ -30,7 +29,6 @@ export default {
       :value="digit"
       :activeValue="activeValue"
       :toggleActive="toggleActive"
-      :validateBoard="validateBoard"
     />
   </div>
 </template>

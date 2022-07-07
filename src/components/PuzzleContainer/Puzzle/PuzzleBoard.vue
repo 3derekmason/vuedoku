@@ -41,11 +41,6 @@ export default {
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
     },
-    validateBoard() {
-      if (validateGameBoard(this.CompleteBoard)) {
-        this.boardIsValid = true;
-      }
-    },
   },
 };
 </script>
@@ -61,7 +56,6 @@ export default {
       :rowData="row"
       :activeValue="activeValue"
       :toggleActive="toggleActive"
-      :validateBoard="this.validateBoard"
     />
   </div>
 </template>
