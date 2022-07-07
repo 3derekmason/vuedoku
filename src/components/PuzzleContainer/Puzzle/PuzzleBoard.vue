@@ -1,6 +1,6 @@
 <script>
 import PuzzleRow from "./PuzzleRow.vue";
-
+import validateGameBoard from "../../util/validateGameBoard";
 export default {
   name: "PuzzleBoard",
   components: {
@@ -34,11 +34,17 @@ export default {
         [5, 3, 0, 1, 4, 2, 9, 6, 7],
         [0, 0, 0, 0, 9, 0, 3, 4, 0],
       ],
+      boardIsValid: false,
     };
   },
   methods: {
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
+    },
+    validateBoard() {
+      if (validateGameBoard(this.CompleteBoard)) {
+        this.boardIsValid = true;
+      }
     },
   },
 };
@@ -55,6 +61,7 @@ export default {
       :rowData="row"
       :activeValue="activeValue"
       :toggleActive="toggleActive"
+      :validateBoard="this.validateBoard"
     />
   </div>
 </template>

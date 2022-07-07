@@ -9,6 +9,7 @@ export default {
     toggleActive: Function,
     completeBoard: Array,
     editBoard: Function,
+    validateBoard: Function,
   },
   methods: {
     editCell() {
@@ -29,6 +30,7 @@ export default {
       () => {
         editCell();
         toggleActive(0);
+        validateBoard();
       }
     "
   >
