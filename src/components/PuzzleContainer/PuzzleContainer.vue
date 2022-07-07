@@ -39,7 +39,7 @@ export default {
   methods: {
     countNInBoard: countNInBoard,
     toggleActive(input) {
-      if (this.countNInBoard(input, this.completeBoard) === 8) {
+      if (this.countNInBoard(input, this.completeBoard) >= 9) {
         this.activeValue = 0;
       } else {
         this.activeValue = input;
