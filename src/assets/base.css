@@ -16,6 +16,7 @@
   --font-teal-transparent: #e0f2f180;
   --color-selected: #64ffda;
   --color-selected-soft: #a7ffeb;
+  --color-disabled: #b2dfdb;
 }
 
 body {

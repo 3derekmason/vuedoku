@@ -23,6 +23,17 @@ export default {
       //   [5, 3, 8, 1, 4, 2, 9, 6, 7],
       //   [7, 2, 6, 8, 9, 5, 3, 4, 1],
       // ],
+      originalBoard: [
+        [3, 0, 1, 0, 8, 0, 5, 7, 0],
+        [0, 8, 7, 3, 5, 9, 1, 0, 0],
+        [0, 0, 2, 7, 0, 4, 0, 0, 0],
+        [8, 0, 5, 4, 0, 0, 6, 9, 0],
+        [2, 1, 0, 9, 6, 0, 0, 0, 0],
+        [0, 0, 4, 0, 0, 8, 7, 1, 0],
+        [0, 0, 9, 6, 7, 3, 0, 5, 8],
+        [5, 3, 0, 1, 4, 2, 9, 6, 7],
+        [0, 0, 0, 0, 9, 0, 3, 4, 0],
+      ],
       completeBoard: [
         [3, 0, 1, 0, 8, 0, 5, 7, 0],
         [0, 8, 7, 3, 5, 9, 1, 0, 0],
@@ -48,10 +59,14 @@ export default {
 </script>
 
 <template>
-  <div v-if="this.validation(this.completeBoard)"><h1>Great Job!</h1></div>
+  <div v-if="this.validation(this.completeBoard)" class="puzzleBoard">
+    <h1>Great Job!</h1>
+  </div>
+
   <div v-else class="puzzleBoard">
     <PuzzleRow
       v-for="(row, i) in completeBoard"
+      :originalBoard="this.originalBoard"
       :completeBoard="this.completeBoard"
       :editBoard="this.editBoard"
       :key="i"
@@ -71,5 +86,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 0 4px var(--font-teal-transparent);
+}
+.puzzleBoard h1 {
+  width: 100%;
+  height: 100%;
+  font-size: 64px;
+  display: grid;
+  place-content: center;
 }
 </style>

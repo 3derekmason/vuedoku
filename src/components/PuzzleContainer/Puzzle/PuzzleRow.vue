@@ -11,6 +11,7 @@ export default {
     rowIndex: Number,
     activeValue: Number,
     toggleActive: Function,
+    originalBoard: Array,
     completeBoard: Array,
     editBoard: Function,
   },
@@ -23,6 +24,7 @@ export default {
       v-for="(digit, i) in rowData"
       :key="i"
       :completeBoard="completeBoard"
+      :originalBoard="originalBoard"
       :editBoard="editBoard"
       :rowIndex="rowIndex"
       :cellIndex="i"
