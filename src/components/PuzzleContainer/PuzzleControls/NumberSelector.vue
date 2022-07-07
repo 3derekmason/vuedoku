@@ -8,7 +8,6 @@ export default {
   data() {
     return {
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      isSelected: false,
     };
   },
 };
@@ -22,12 +21,11 @@ export default {
       :key="number"
       @click="
         () => {
-          isSelected = number;
           toggleActive(number);
         }
       "
     >
-      <p v-if="isSelected === number" class="selected">
+      <p v-if="activeValue === number" class="selected">
         {{ numbers[number - 1] }}
       </p>
       <p v-else>{{ numbers[number - 1] }}</p>

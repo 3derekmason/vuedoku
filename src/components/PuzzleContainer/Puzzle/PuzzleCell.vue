@@ -14,14 +14,24 @@ export default {
     editCell() {
       if (this.activeValue) {
         this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
-      } else console.error(new Error("No number has been selected"));
+      } else {
+        console.error(new Error("No number has been selected"));
+      }
     },
   },
 };
 </script>
 
 <template>
-  <div class="puzzleCell" @click="editCell">
+  <div
+    class="puzzleCell"
+    @click="
+      () => {
+        editCell();
+        toggleActive(0);
+      }
+    "
+  >
     <h1>{{ value === 0 ? "" : value }}</h1>
   </div>
 </template>
