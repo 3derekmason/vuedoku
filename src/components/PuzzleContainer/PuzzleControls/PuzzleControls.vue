@@ -19,12 +19,13 @@ export default {
 
 <template>
   <div class="puzzleControls">
-    <div class="undo">
+    <div class="reset">
+      <p>Reset</p>
       <img
         class="icon"
         src="../../../assets/undo-arrow.png"
         width="20"
-        alt="undo"
+        alt="reset"
         @click="
           () => {
             this.resetBoard();
@@ -53,19 +54,25 @@ export default {
   align-items: center;
   gap: 24px;
 }
-.puzzleControls .undo {
+.puzzleControls .reset {
   width: 32px;
+  height: 48px;
   aspect-ratio: 1/1;
-  display: grid;
-  place-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.undo .icon {
+.reset .icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(106deg)
     brightness(105%) contrast(106%);
 }
 
-.undo .icon:hover {
+.reset .icon:hover {
   filter: invert(80%) sepia(58%) saturate(195%) hue-rotate(109deg)
     brightness(103%) contrast(102%);
   cursor: pointer;
