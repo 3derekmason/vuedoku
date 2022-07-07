@@ -17,6 +17,9 @@ export default {
     editCell() {
       if (this.activeValue) {
         this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
+        if (this.countNInBoard(this.activeValue, this.completeBoard) >= 9) {
+          this.toggleActive(0);
+        }
       } else {
         console.error(new Error("No number has been selected"));
       }
