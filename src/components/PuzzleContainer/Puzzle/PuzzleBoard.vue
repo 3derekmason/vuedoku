@@ -6,7 +6,10 @@ export default {
   components: {
     PuzzleRow,
   },
-  props: { rowData: Array },
+  props: {
+    activeValue: Number,
+    toggleActive: Function,
+  },
   data() {
     return {
       // completeBoard: [
@@ -21,15 +24,15 @@ export default {
       //   [7, 2, 6, 8, 9, 5, 3, 4, 1],
       // ],
       completeBoard: [
-        [3, "", 1, "", 8, "", 5, 7, ""],
-        ["", 8, 7, 3, 5, 9, 1, "", ""],
-        ["", "", 2, 7, "", 4, "", "", ""],
-        [8, "", 5, 4, "", "", 6, 9, ""],
-        [2, 1, "", 9, 6, "", "", "", ""],
-        ["", "", 4, "", "", 8, 7, 1, ""],
-        ["", "", 9, 6, 7, 3, "", 5, 8],
-        [5, 3, "", 1, 4, 2, 9, 6, 7],
-        ["", "", "", "", 9, "", 3, 4, ""],
+        [3, 0, 1, 0, 8, 0, 5, 7, 0],
+        [0, 8, 7, 3, 5, 9, 1, 0, 0],
+        [0, 0, 2, 7, 0, 4, 0, 0, 0],
+        [8, 0, 5, 4, 0, 0, 6, 9, 0],
+        [2, 1, 0, 9, 6, 0, 0, 0, 0],
+        [0, 0, 4, 0, 0, 8, 7, 1, 0],
+        [0, 0, 9, 6, 7, 3, 0, 5, 8],
+        [5, 3, 0, 1, 4, 2, 9, 6, 7],
+        [0, 0, 0, 0, 9, 0, 3, 4, 0],
       ],
     };
   },
@@ -42,6 +45,8 @@ export default {
       v-for="row in completeBoard"
       :key="completeBoard.indexOf(row)"
       :rowData="row"
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
     />
   </div>
 </template>

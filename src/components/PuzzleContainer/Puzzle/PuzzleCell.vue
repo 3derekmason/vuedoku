@@ -3,13 +3,16 @@ export default {
   name: "PuzzleCell",
   props: {
     value: Number,
+    setValue: Function,
+    activeValue: Number,
+    toggleActive: Function,
   },
 };
 </script>
 
 <template>
   <div class="puzzleCell">
-    <h1>{{ value }}</h1>
+    <h1>{{ value === 0 ? "" : value }}</h1>
   </div>
 </template>
 

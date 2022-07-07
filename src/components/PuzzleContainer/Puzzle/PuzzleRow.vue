@@ -8,13 +8,26 @@ export default {
   },
   props: {
     rowData: Array,
+    activeValue: Number,
+    toggleActive: Function,
   },
 };
 </script>
 
 <template>
   <div class="puzzleRow">
-    <PuzzleCell v-for="i in rowData" :key="i" :value="i" />
+    <PuzzleCell
+      v-for="i in rowData"
+      :key="i"
+      :value="i"
+      :setValue="
+        (n) => {
+          i = n;
+        }
+      "
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+    />
   </div>
 </template>
 

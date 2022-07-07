@@ -20,7 +20,10 @@ export default {
 
 <template>
   <div class="container">
-    <PuzzleBoard />
+    <PuzzleBoard
+      :activeValue="this.activeValue"
+      :toggleActive="this.toggleActive"
+    />
     <PuzzleControls
       :activeValue="this.activeValue"
       :toggleActive="this.toggleActive"
