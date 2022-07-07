@@ -20,6 +20,8 @@ export default {
         if (this.countNInBoard(this.activeValue, this.completeBoard) >= 9) {
           this.toggleActive(0);
         }
+      } else if (this.activeValue === 0) {
+        this.editBoard([this.rowIndex, this.cellIndex], 0);
       } else {
         console.error(new Error("No number has been selected"));
       }

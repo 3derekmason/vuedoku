@@ -18,12 +18,38 @@ export default {
     disableSelection(n) {
       return countNInBoard(n, this.completeBoard) >= 9;
     },
+    erasing() {
+      return this.activeValue === 0 ? "erasing" : "";
+    },
   },
 };
 </script>
 
 <template>
   <div class="numberSelector">
+    <img
+      v-if="this.activeValue === 0"
+      class="erasing"
+      src="../../../assets/eraser.png"
+      width="20"
+      alt="erase"
+      @click="
+        () => {
+          toggleActive(0);
+        }
+      "
+    />
+    <img
+      v-else
+      src="../../../assets/eraser.png"
+      width="20"
+      alt="erase"
+      @click="
+        () => {
+          toggleActive(0);
+        }
+      "
+    />
     <div class="selection" v-for="number in numbers" :key="number">
       <button
         v-if="activeValue === number"
@@ -58,6 +84,13 @@ export default {
   justify-content: center;
   gap: 8px;
 }
+.numberSelector img {
+  filter: invert(87%) sepia(27%) saturate(151%) hue-rotate(306deg)
+    brightness(103%) contrast(101%);
+}
+.numberSelector img:hover {
+  cursor: pointer;
+}
 .numberSelector button {
   background: none;
   width: 100%;
@@ -85,6 +118,11 @@ export default {
   font-size: 24px;
   color: var(--font-teal);
   cursor: default;
+}
+
+.numberSelector .erasing {
+  filter: invert(62%) sepia(31%) saturate(888%) hue-rotate(295deg)
+    brightness(99%) contrast(104%);
 }
 
 .selection .selected {
