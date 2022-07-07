@@ -13,8 +13,8 @@ export default {
     return {
       activeValue: 0,
       // completeBoard: [
-      //   [3, 9, 1, 2, 8, 6, 5, 7, 4],
-      //   [4, 8, 7, 3, 5, 9, 1, 2, 6],
+      //   [3, 9, 1, 0, 8, 6, 5, 7, 4],
+      //   [4, 8, 7, 3, 0, 9, 1, 2, 6],
       //   [6, 5, 2, 7, 1, 4, 8, 3, 9],
       //   [8, 7, 5, 4, 3, 1, 6, 9, 2],
       //   [2, 1, 3, 9, 6, 7, 4, 8, 5],
@@ -50,7 +50,7 @@ export default {
   methods: {
     countNInBoard: countNInBoard,
     toggleActive(input) {
-      if (this.countNInBoard(this.activeValue, this.completeBoard) === 8) {
+      if (this.countNInBoard(input, this.completeBoard) === 8) {
         this.activeValue = 0;
       } else {
         this.activeValue = input;

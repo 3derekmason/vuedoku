@@ -26,7 +26,7 @@ export default {
   <div class="numberSelector">
     <div class="selection" v-for="number in numbers" :key="number">
       <button
-        v-if="activeValue === number && !this.disableSelection(number)"
+        v-if="activeValue === number"
         class="selected"
         :disabled="this.disableSelection(number)"
       >

@@ -1,6 +1,7 @@
 <script>
 import PuzzleRow from "./PuzzleRow.vue";
 import validateGameBoard from "../../util/validateGameBoard";
+import boardIsFull from "../../util/boardIsFull";
 export default {
   name: "PuzzleBoard",
   components: {
@@ -14,6 +15,7 @@ export default {
     editBoard: Function,
   },
   methods: {
+    boardIsFull: boardIsFull,
     validation(boardArray) {
       return validateGameBoard(boardArray);
     },
@@ -25,7 +27,20 @@ export default {
   <div v-if="this.validation(completeBoard)" class="puzzleBoard">
     <h1>Great Job!</h1>
   </div>
-
+  <div v-else-if="this.boardIsFull(completeBoard)" class="puzzleBoard">
+    <PuzzleRow
+      v-for="(row, i) in completeBoard"
+      :originalBoard="originalBoard"
+      :completeBoard="completeBoard"
+      :editBoard="editBoard"
+      :key="i"
+      :rowIndex="i"
+      :rowData="row"
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+      :style="{ boxShadow: '0 2px 4px #D50000' }"
+    />
+  </div>
   <div v-else class="puzzleBoard">
     <PuzzleRow
       v-for="(row, i) in completeBoard"
