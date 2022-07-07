@@ -36,14 +36,22 @@ export default {
       ],
     };
   },
+  methods: {
+    editBoard(position, newValue) {
+      this.completeBoard[position[0]][position[1]] = newValue;
+    },
+  },
 };
 </script>
 
 <template>
   <div class="puzzleBoard">
     <PuzzleRow
-      v-for="row in completeBoard"
-      :key="completeBoard.indexOf(row)"
+      v-for="(row, i) in completeBoard"
+      :completeBoard="this.completeBoard"
+      :editBoard="this.editBoard"
+      :key="i"
+      :rowIndex="i"
       :rowData="row"
       :activeValue="activeValue"
       :toggleActive="toggleActive"

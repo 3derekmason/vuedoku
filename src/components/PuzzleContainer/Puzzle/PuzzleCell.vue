@@ -3,15 +3,23 @@ export default {
   name: "PuzzleCell",
   props: {
     value: Number,
-    setValue: Function,
+    rowIndex: Number,
+    cellIndex: Number,
     activeValue: Number,
     toggleActive: Function,
+    completeBoard: Array,
+    editBoard: Function,
+  },
+  methods: {
+    editCell() {
+      this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
+    },
   },
 };
 </script>
 
 <template>
-  <div class="puzzleCell">
+  <div class="puzzleCell" @click="editCell">
     <h1>{{ value === 0 ? "" : value }}</h1>
   </div>
 </template>
@@ -28,6 +36,7 @@ export default {
   border-right: 1px solid var(--font-teal);
 }
 .puzzleCell:hover {
+  cursor: pointer;
   border: 1px solid #ffffff;
 }
 .puzzleCell h1 {
