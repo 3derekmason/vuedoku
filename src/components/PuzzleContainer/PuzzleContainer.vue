@@ -59,6 +59,13 @@ export default {
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
     },
+    resetBoard() {
+      this.originalBoard.forEach((row, i) => {
+        row.forEach((value, j) => {
+          this.editBoard([i, j], value);
+        });
+      });
+    },
   },
 };
 </script>
@@ -78,6 +85,7 @@ export default {
       :originalBoard="this.originalBoard"
       :completeBoard="this.completeBoard"
       :editBoard="this.editBoard"
+      :resetBoard="this.resetBoard"
     />
   </div>
 </template>

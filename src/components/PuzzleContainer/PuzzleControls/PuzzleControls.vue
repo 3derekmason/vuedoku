@@ -12,6 +12,7 @@ export default {
     originalBoard: Array,
     completeBoard: Array,
     editBoard: Function,
+    resetBoard: Function,
   },
 };
 </script>
@@ -24,6 +25,11 @@ export default {
         src="../../../assets/undo-arrow.png"
         width="20"
         alt="undo"
+        @click="
+          () => {
+            this.resetBoard();
+          }
+        "
       />
     </div>
     <NumberSelector
