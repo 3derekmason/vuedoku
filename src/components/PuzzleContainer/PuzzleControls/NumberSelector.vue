@@ -56,7 +56,7 @@ export default {
   cursor: pointer;
 }
 .selection .selected {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   color: var(--color-selected);
 }

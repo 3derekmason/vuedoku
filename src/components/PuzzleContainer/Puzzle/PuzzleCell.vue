@@ -51,6 +51,9 @@ export default {
   cursor: pointer;
   border: 1px solid #ffffff;
 }
+.puzzleCell:active {
+  border: 1px solid var(--color-selected);
+}
 .puzzleCell h1 {
   font-size: 24px;
   color: var(--font-teal);
