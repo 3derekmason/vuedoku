@@ -30,15 +30,10 @@ export default {
 
 <template>
   <button
-    class="puzzleCell original"
+    class="puzzleCell"
+    :disabled="this.disableOriginal()"
     @click="
       () => {
-        if (disableOriginal()) {
-          return false;
-        }
-        if (this.countNInBoard(this.activeValue, this.completeBoard) === 8) {
-          toggleActive(0);
-        }
         editCell();
       }
     "
@@ -69,10 +64,11 @@ export default {
 .puzzleCell h1 {
   font-weight: 200;
   font-size: 24px;
-  color: var(--font-white);
+  color: var(--font-teal);
 }
-.original h1 {
+button:disabled h1 {
+  font-size: 28px;
   font-weight: 800;
-  color: var(--color-disabled);
+  color: var(--color-selected-soft);
 }
 </style>
