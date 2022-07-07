@@ -34,19 +34,22 @@ export default {
         [5, 3, 0, 1, 4, 2, 9, 6, 7],
         [0, 0, 0, 0, 9, 0, 3, 4, 0],
       ],
-      boardIsValid: false,
     };
   },
   methods: {
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
     },
+    validation(boardArray) {
+      return validateGameBoard(boardArray);
+    },
   },
 };
 </script>
 
 <template>
-  <div class="puzzleBoard">
+  <div v-if="this.validation(this.completeBoard)"><h1>Great Job!</h1></div>
+  <div v-else class="puzzleBoard">
     <PuzzleRow
       v-for="(row, i) in completeBoard"
       :completeBoard="this.completeBoard"
