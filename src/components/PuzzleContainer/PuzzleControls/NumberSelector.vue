@@ -4,6 +4,8 @@ export default {
   props: {
     activeValue: Number,
     toggleActive: Function,
+    originalBoard: Array,
+    completeBoard: Array,
   },
   data() {
     return {

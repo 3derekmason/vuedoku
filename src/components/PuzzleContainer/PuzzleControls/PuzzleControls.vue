@@ -9,6 +9,9 @@ export default {
   props: {
     activeValue: Number,
     toggleActive: Function,
+    originalBoard: Array,
+    completeBoard: Array,
+    editBoard: Function,
   },
 };
 </script>
@@ -23,7 +26,12 @@ export default {
         alt="undo"
       />
     </div>
-    <NumberSelector :activeValue="activeValue" :toggleActive="toggleActive" />
+    <NumberSelector
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+      :originalBoard="originalBoard"
+      :completeBoard="completeBoard"
+    />
   </div>
 </template>
 
