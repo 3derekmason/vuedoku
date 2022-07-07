@@ -1,4 +1,5 @@
 <script>
+import countNInBoard from "../../util/countNInBoard";
 export default {
   name: "PuzzleControls",
   props: {
@@ -12,25 +13,36 @@ export default {
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     };
   },
+  methods: {
+    countNInBoard: countNInBoard,
+    disableSelection(n) {
+      return countNInBoard(n, this.completeBoard) >= 9;
+    },
+  },
 };
 </script>
 
 <template>
   <div class="numberSelector">
-    <div
-      class="selection"
-      v-for="number in numbers"
-      :key="number"
-      @click="
-        () => {
-          toggleActive(number);
-        }
-      "
-    >
-      <p v-if="activeValue === number" class="selected">
+    <div class="selection" v-for="number in numbers" :key="number">
+      <button
+        v-if="activeValue === number"
+        class="selected"
+        :disabled="this.disableSelection(number)"
+      >
         {{ numbers[number - 1] }}
-      </p>
-      <p v-else>{{ numbers[number - 1] }}</p>
+      </button>
+      <button
+        v-else
+        :disabled="this.disableSelection(number)"
+        @click="
+          () => {
+            toggleActive(number);
+          }
+        "
+      >
+        {{ numbers[number - 1] }}
+      </button>
     </div>
   </div>
 </template>
@@ -57,6 +69,11 @@ export default {
   font-size: 24px;
   cursor: pointer;
 }
+.numberSelector button:disabled {
+  color: red;
+  background: green;
+}
+
 .selection .selected {
   font-size: 32px;
   font-weight: 600;

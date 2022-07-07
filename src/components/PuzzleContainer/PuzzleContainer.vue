@@ -1,4 +1,6 @@
 <script>
+import countNInBoard from "../util/countNInBoard";
+
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
 export default {
@@ -46,8 +48,13 @@ export default {
     };
   },
   methods: {
+    countNInBoard: countNInBoard,
     toggleActive(input) {
-      this.activeValue = input;
+      if (this.countNInBoard(this.activeValue, this.completeBoard) === 8) {
+        this.activeValue = 0;
+      } else {
+        this.activeValue = input;
+      }
     },
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;

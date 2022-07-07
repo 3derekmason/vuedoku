@@ -1,4 +1,5 @@
 <script>
+import countNInBoard from "../../util/countNInBoard";
 export default {
   name: "PuzzleCell",
   props: {
@@ -12,6 +13,7 @@ export default {
     editBoard: Function,
   },
   methods: {
+    countNInBoard: countNInBoard,
     editCell() {
       if (this.activeValue) {
         this.editBoard([this.rowIndex, this.cellIndex], this.activeValue);
@@ -20,10 +22,7 @@ export default {
       }
     },
     disableOriginal() {
-      if (this.originalBoard[this.rowIndex][this.cellIndex] !== 0) {
-        return true;
-      }
-      return false;
+      return this.originalBoard[this.rowIndex][this.cellIndex] !== 0;
     },
   },
 };
@@ -31,11 +30,16 @@ export default {
 
 <template>
   <button
-    :disabled="this.disableOriginal()"
-    class="puzzleCell"
+    class="puzzleCell original"
     @click="
       () => {
-        return disableOriginal() ? false : editCell();
+        if (disableOriginal()) {
+          return false;
+        }
+        if (this.countNInBoard(this.activeValue, this.completeBoard) === 8) {
+          toggleActive(0);
+        }
+        editCell();
       }
     "
   >
@@ -67,7 +71,7 @@ export default {
   font-size: 24px;
   color: var(--font-white);
 }
-.puzzleCell:disabled h1 {
+.original h1 {
   font-weight: 800;
   color: var(--color-disabled);
 }
