@@ -28,7 +28,7 @@ export default {
   <div v-if="this.validation(completeBoard)" class="puzzleBoard">
     <div class="congrats">
       <h1>Great Job!</h1>
-      <h4>Time to completion:</h4>
+      <h4>Time to complete:</h4>
       <h4>
         {{ Math.floor(this.completeTime / 60) }} minutes and
         {{ Math.floor(this.completeTime % 60) }} seconds.
