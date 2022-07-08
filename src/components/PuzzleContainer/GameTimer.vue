@@ -1,13 +1,14 @@
 <template>
-  <div class="timer"></div>
+  <div class="timer">{{ this.currentTime }}</div>
 </template>
 
 <script>
 export default {
   name: "GameTimer",
   props: {
-    startingTime: Date,
-    currentTime: Date,
+    currentTime: Number,
   },
 };
 </script>
+
+<style scoped></style>

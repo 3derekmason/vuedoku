@@ -4,11 +4,14 @@ import countNInBoard from "../util/countNInBoard";
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
 
+import GameTimer from "./GameTimer.vue";
+
 export default {
   name: "PuzzleContainer",
   components: {
     PuzzleBoard,
     PuzzleControls,
+    GameTimer,
   },
   data() {
     return {
@@ -67,7 +70,6 @@ export default {
     },
   },
   mounted() {
-    console.log(`starting timer.`);
     setInterval(this.startTimer, 1000);
   },
 };
@@ -75,9 +77,9 @@ export default {
 
 <template>
   <div class="container">
-    <div class="timer">
-      {{ "this.currentTime - this.startingTime.getUTCSeconds()" }}
-    </div>
+    <GameTimer
+      :currentTime="Math.floor((this.currentTime - this.startingTime) / 1000)"
+    />
     <PuzzleBoard
       :activeValue="this.activeValue"
       :toggleActive="this.toggleActive"

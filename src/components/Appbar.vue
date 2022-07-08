@@ -1,4 +1,8 @@
-<script></script>
+<script>
+export default {
+  name: "AppBar",
+};
+</script>
 
 <template>
   <div class="appbar">
