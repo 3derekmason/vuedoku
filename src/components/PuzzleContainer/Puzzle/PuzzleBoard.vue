@@ -26,12 +26,14 @@ export default {
 
 <template>
   <div v-if="this.validation(completeBoard)" class="puzzleBoard">
-    <h1>Great Job!</h1>
-    <h4>Time to completion:</h4>
-    <h4>
-      {{ Math.floor(this.completeTime / 60) }} minutes and
-      {{ Math.floor(this.completeTime % 60) }} seconds.
-    </h4>
+    <div class="congrats">
+      <h1>Great Job!</h1>
+      <h4>Time to completion:</h4>
+      <h4>
+        {{ Math.floor(this.completeTime / 60) }} minutes and
+        {{ Math.floor(this.completeTime % 60) }} seconds.
+      </h4>
+    </div>
   </div>
   <div v-else-if="this.boardIsFull(completeBoard)" class="puzzleBoard">
     <PuzzleRow
@@ -71,11 +73,29 @@ export default {
   flex-wrap: wrap;
   box-shadow: 0 0 4px var(--font-teal-transparent);
 }
-.puzzleBoard h1 {
+.puzzleBoard .congrats {
   width: 100%;
   height: 100%;
-  font-size: 64px;
   display: grid;
   place-content: center;
+  animation: fadeIn 1s;
+}
+.congrats h1 {
+  font-size: 64px;
+}
+.congrats h4 {
+  text-align: center;
+}
+
+h4:nth-child(3n) {
+  color: var(--color-selected);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
