@@ -14,11 +14,7 @@ export default {
   },
   methods: {
     formatTime(seconds) {
-      let timeTuple = [0, seconds];
-      if (timeTuple[1] >= 60) {
-        timeTuple[0]++;
-        timeTuple[1] = timeTuple[1] - 60;
-      }
+      let timeTuple = [Math.floor(seconds / 60), Math.floor(seconds % 60)];
       if (timeTuple[1] < 10) {
         timeTuple[1] = "0" + timeTuple[1];
       }
@@ -28,4 +24,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.timer {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 4px;
+}
+</style>

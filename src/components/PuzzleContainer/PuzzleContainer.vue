@@ -16,8 +16,8 @@ export default {
   data() {
     return {
       activeValue: 0,
-      startingTime: new Date().getTime(),
-      currentTime: new Date().getTime(),
+      currentTime: 0,
+      completeTime: 0,
       originalBoard: [
         [3, 0, 1, 0, 8, 0, 5, 7, 0],
         [0, 8, 7, 3, 5, 9, 1, 0, 0],
@@ -45,17 +45,15 @@ export default {
   methods: {
     countNInBoard: countNInBoard,
     startTimer() {
-      this.currentTime = new Date().getTime();
+      this.currentTime++;
+    },
+    stopTimer() {
+      this.completeTime = this.currentTime;
     },
     toggleActive(input) {
       return this.countNInBoard(input, this.completeBoard) >= 9
         ? (this.activeValue = 0)
         : (this.activeValue = input);
-      // if (this.countNInBoard(input, this.completeBoard) >= 9) {
-      //   this.activeValue = 0;
-      // } else {
-      //   this.activeValue = input;
-      // }
     },
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
@@ -76,9 +74,7 @@ export default {
 
 <template>
   <div class="container">
-    <GameTimer
-      :currentTime="Math.floor((this.currentTime - this.startingTime) / 1000)"
-    />
+    <GameTimer :currentTime="this.currentTime" />
     <PuzzleBoard
       :activeValue="this.activeValue"
       :toggleActive="this.toggleActive"
