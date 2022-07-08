@@ -44,19 +44,18 @@ export default {
   },
   methods: {
     countNInBoard: countNInBoard,
-
     startTimer() {
       this.currentTime = new Date().getTime();
-      console.log(Math.floor((this.currentTime - this.startingTime) / 1000));
-
-      // this.currentTime = newTime.getUTCSeconds();
     },
     toggleActive(input) {
-      if (this.countNInBoard(input, this.completeBoard) >= 9) {
-        this.activeValue = 0;
-      } else {
-        this.activeValue = input;
-      }
+      return this.countNInBoard(input, this.completeBoard) >= 9
+        ? (this.activeValue = 0)
+        : (this.activeValue = input);
+      // if (this.countNInBoard(input, this.completeBoard) >= 9) {
+      //   this.activeValue = 0;
+      // } else {
+      //   this.activeValue = input;
+      // }
     },
     editBoard(position, newValue) {
       this.completeBoard[position[0]][position[1]] = newValue;
