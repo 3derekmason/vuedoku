@@ -3,6 +3,7 @@ import countNInBoard from "../util/countNInBoard";
 
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
+
 export default {
   name: "PuzzleContainer",
   components: {
@@ -12,6 +13,8 @@ export default {
   data() {
     return {
       activeValue: 0,
+      startingTime: new Date().getTime(),
+      currentTime: new Date().getTime(),
       originalBoard: [
         [3, 0, 1, 0, 8, 0, 5, 7, 0],
         [0, 8, 7, 3, 5, 9, 1, 0, 0],
@@ -38,6 +41,13 @@ export default {
   },
   methods: {
     countNInBoard: countNInBoard,
+
+    startTimer() {
+      this.currentTime = new Date().getTime();
+      console.log(Math.floor((this.currentTime - this.startingTime) / 1000));
+
+      // this.currentTime = newTime.getUTCSeconds();
+    },
     toggleActive(input) {
       if (this.countNInBoard(input, this.completeBoard) >= 9) {
         this.activeValue = 0;
@@ -56,11 +66,18 @@ export default {
       });
     },
   },
+  mounted() {
+    console.log(`starting timer.`);
+    setInterval(this.startTimer, 1000);
+  },
 };
 </script>
 
 <template>
   <div class="container">
+    <div class="timer">
+      {{ "this.currentTime - this.startingTime.getUTCSeconds()" }}
+    </div>
     <PuzzleBoard
       :activeValue="this.activeValue"
       :toggleActive="this.toggleActive"
