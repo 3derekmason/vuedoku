@@ -29,6 +29,8 @@ I thought it would be fun to try to build a very simple Sudoku app, and document
 
 </div>
 
+---
+
 ## Getting Started
 
 `npm i` - to install all dependencies
@@ -37,6 +39,20 @@ I thought it would be fun to try to build a very simple Sudoku app, and document
 
 `npm run test:unit` - to run and watch spec files with Vitest.
 
+---
+
 ## Contributing
 
+I would love to see what others are doing with this project. If you have something to add, or think your game logic is an improvement over the existing feel free to submit a pull request!
+
+1. Fork the project
+2. Create your own branch (`git checkout -b your_branch_name`)
+3. Commit your changes (`git commit -m"new feature for Vuedoku"`)
+4. Push to new branch (`git push origin your_branch_name`)
+5. Open a pull request to be reviewed!
+
+---
+
 ## Contact
+
+Derek Mason is a developer in Denver, Colorado who uses software engineering as a tool to bring impactful ideas to life. Find out more at [derekmason.dev](https://derekmason.dev).
