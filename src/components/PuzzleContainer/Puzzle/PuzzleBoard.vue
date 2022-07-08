@@ -13,6 +13,7 @@ export default {
     originalBoard: Array,
     completeBoard: Array,
     editBoard: Function,
+    completeTime: Number,
   },
   methods: {
     boardIsFull: boardIsFull,
@@ -26,6 +27,11 @@ export default {
 <template>
   <div v-if="this.validation(completeBoard)" class="puzzleBoard">
     <h1>Great Job!</h1>
+    <h4>Time to completion:</h4>
+    <h4>
+      {{ Math.floor(this.completeTime / 60) }} minutes and
+      {{ Math.floor(this.completeTime % 60) }} seconds.
+    </h4>
   </div>
   <div v-else-if="this.boardIsFull(completeBoard)" class="puzzleBoard">
     <PuzzleRow

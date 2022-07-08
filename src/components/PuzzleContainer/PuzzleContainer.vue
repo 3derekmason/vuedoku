@@ -1,5 +1,6 @@
 <script>
 import countNInBoard from "../util/countNInBoard";
+import validateGameBoard from "../util/validateGameBoard";
 
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
@@ -45,7 +46,11 @@ export default {
   methods: {
     countNInBoard: countNInBoard,
     startTimer() {
-      this.currentTime++;
+      if (validateGameBoard(this.completeBoard)) {
+        this.stopTimer();
+      } else {
+        this.currentTime++;
+      }
     },
     stopTimer() {
       this.completeTime = this.currentTime;
@@ -81,6 +86,7 @@ export default {
       :originalBoard="this.originalBoard"
       :completeBoard="this.completeBoard"
       :editBoard="this.editBoard"
+      :completeTime="this.completeTime"
     />
     <PuzzleControls
       :activeValue="this.activeValue"
