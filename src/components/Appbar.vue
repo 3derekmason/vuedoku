@@ -19,7 +19,7 @@ export default {
         target="_blank"
         >UI</a
       >
-      <a href="">UI + UX</a>
+      <a href="https://derekmason.dev" target="_blank">UI + UX</a>
     </div>
   </div>
 </template>
