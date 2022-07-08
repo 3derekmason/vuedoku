@@ -26,36 +26,36 @@ export default {
 
 <style scoped>
 .appbar {
+  width: 100%;
+  height: 88px;
   background: var(--bg-teal);
   padding-left: 40px;
   padding-right: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 88px;
 }
 .appbar h1 {
   letter-spacing: 2px;
 }
 
 .appbar .buttonRow {
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
   gap: 16px;
 }
 
 .buttonRow a {
+  padding: 4px;
+  width: 112px;
   background: var(--bg-teal);
   color: var(--font-teal);
+  text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 600;
-  padding: 4px;
-  width: 112px;
-  text-align: center;
   border-radius: 2px;
   border: 0.5px solid var(--color-selected-soft);
   box-shadow: 0 2px 0 var(--color-selected-soft);

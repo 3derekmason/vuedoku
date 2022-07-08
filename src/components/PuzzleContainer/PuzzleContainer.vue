@@ -4,7 +4,6 @@ import validateGameBoard from "../util/validateGameBoard";
 
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
-
 import GameTimer from "./GameTimer.vue";
 
 export default {
@@ -101,9 +100,9 @@ export default {
 
 <style scoped>
 .container {
-  background: var(--bg-teal-mute);
   width: 800px;
   height: calc(100vh - 88px);
+  background: var(--bg-teal-mute);
   border-left: 0.5px solid #ffffff80;
   border-right: 0.5px solid #ffffff80;
   display: flex;

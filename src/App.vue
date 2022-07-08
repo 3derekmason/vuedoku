@@ -1,6 +1,6 @@
 <script>
-import PuzzleContainer from "./components/PuzzleContainer/PuzzleContainer.vue";
 import AppBar from "./components/AppBar.vue";
+import PuzzleContainer from "./components/PuzzleContainer/PuzzleContainer.vue";
 
 export default {
   name: "App",
