@@ -1,41 +1,42 @@
-# sudoku_vue
+# Vuedoku: Build a Sudoku app with Vue
 
-This template should help get you started developing with Vue 3 in Vite.
+<div align="center">
+<a href="" target="_blank">Part I: Game Logic</a> |
+<a href="" target="_blank">Part II: Game UI</a> |
+<a href="" target="_blank">Part III: Game UX</a>
+</div>
 
-## Recommended IDE Setup
+<br>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<img src="./public/readme1.png">
 
-## Customize configuration
+Welcome to **Vuedoku**, a three part story where we build a Sudoku app using Vue3 and configure the logic required to make the puzzle playable.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## About
 
-## Project Setup
+I have always loved solving (or attempting) sudoku puzzles. The patterns and logic that are implemented in a simple numbers game makes a very satisfying, repeatable challenge.
 
-```sh
-npm install
-```
+I thought it would be fun to try to build a very simple Sudoku app, and document some lessons along the way.
 
-### Compile and Hot-Reload for Development
+<div align="center">
 
-```sh
-npm run dev
-```
+<h3>Built Using:</h3>
+<img src="./src/assets/logo.svg" width="48">
+<img src="./public/vite.svg" width="48">
+<img src="./public/vitest.svg" width="48">
+<img src="./public/eslint.png" width="48">
+<img src="./public/prettier-2.svg" width="48">
 
-### Compile and Minify for Production
+</div>
 
-```sh
-npm run build
-```
+## Getting Started
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+`npm i` - to install all dependencies
 
-```sh
-npm run test:unit
-```
+`npm run dev` - to begin development at [localhost:3000](http://localhost:3000)!
 
-### Lint with [ESLint](https://eslint.org/)
+`npm run test:unit` - to run and watch spec files with Vitest.
 
-```sh
-npm run lint
-```
+## Contributing
+
+## Contact
