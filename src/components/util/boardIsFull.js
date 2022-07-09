@@ -1,11 +1,7 @@
 const boardIsFull = (boardArray) => {
   let result = true;
   boardArray.forEach((row) => {
-    row.forEach((value) => {
-      if (value === 0) {
-        result = false;
-      }
-    });
+    result = !row.includes(0);
   });
   return result;
 };
