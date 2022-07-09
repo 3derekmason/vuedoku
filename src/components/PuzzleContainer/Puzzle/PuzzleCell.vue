@@ -22,13 +22,13 @@ export default {
   place-content: center;
 }
 .puzzleCell:nth-child(3n) {
-  border-right: 1px solid var(--font-teal);
+  border-right: 1px solid #efefef;
 }
 .puzzleCell:hover {
   border: 1px solid #ffffff;
 }
 .puzzleCell h1 {
   font-size: 24px;
-  color: var(--font-teal);
+  color: #efefef;
 }
 </style>

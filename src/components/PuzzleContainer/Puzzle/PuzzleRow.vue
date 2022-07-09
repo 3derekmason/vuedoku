@@ -22,10 +22,10 @@ export default {
 .puzzleRow {
   width: 100%;
   height: calc(100% / 9);
-  border: 0.5px solid var(--font-teal-transparent);
+  border: 0.5px solid #ffffff80;
   display: flex;
 }
 .puzzleRow:nth-child(3n) {
-  border-bottom: 1px solid var(--font-teal);
+  border-bottom: 1px solid #efefef;
 }
 </style>
