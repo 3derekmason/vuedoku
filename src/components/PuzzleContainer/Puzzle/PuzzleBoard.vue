@@ -1,4 +1,6 @@
 <script>
+import validateGameBoard from "../../util/validateGameBoard";
+import boardIsFull from "../../util/boardIsFull";
 import PuzzleRow from "./PuzzleRow.vue";
 
 export default {
@@ -6,42 +8,51 @@ export default {
   components: {
     PuzzleRow,
   },
-  props: { rowData: Array },
-  data() {
-    return {
-      // completeBoard: [
-      //   [3, 9, 1, 2, 8, 6, 5, 7, 4],
-      //   [4, 8, 7, 3, 5, 9, 1, 2, 6],
-      //   [6, 5, 2, 7, 1, 4, 8, 3, 9],
-      //   [8, 7, 5, 4, 3, 1, 6, 9, 2],
-      //   [2, 1, 3, 9, 6, 7, 4, 8, 5],
-      //   [9, 6, 4, 5, 2, 8, 7, 1, 3],
-      //   [1, 4, 9, 6, 7, 3, 2, 5, 8],
-      //   [5, 3, 8, 1, 4, 2, 9, 6, 7],
-      //   [7, 2, 6, 8, 9, 5, 3, 4, 1],
-      // ],
-      completeBoard: [
-        [3, "", 1, "", 8, "", 5, 7, ""],
-        ["", 8, 7, 3, 5, 9, 1, "", ""],
-        ["", "", 2, 7, "", 4, "", "", ""],
-        [8, "", 5, 4, "", "", 6, 9, ""],
-        [2, 1, "", 9, 6, "", "", "", ""],
-        ["", "", 4, "", "", 8, 7, 1, ""],
-        ["", "", 9, 6, 7, 3, "", 5, 8],
-        [5, 3, "", 1, 4, 2, 9, 6, 7],
-        ["", "", "", "", 9, "", 3, 4, ""],
-      ],
-    };
+  props: {
+    originalBoard: Array,
+    completeBoard: Array,
+    editBoard: Function,
+    activeValue: Number,
+    toggleActive: Function,
+  },
+  methods: {
+    validateGameBoard: validateGameBoard,
+    boardIsFull: boardIsFull,
   },
 };
 </script>
 
 <template>
-  <div class="puzzleBoard">
+  <div v-if="validateGameBoard(completeBoard)" class="puzzleBoard">
+    <div class="congrats">
+      <h1>Great Job!</h1>
+    </div>
+  </div>
+  <div v-else-if="boardIsFull(completeBoard)" class="puzzleBoard">
     <PuzzleRow
-      v-for="row in completeBoard"
-      :key="completeBoard.indexOf(row)"
+      v-for="(row, i) in completeBoard"
+      :originalBoard="originalBoard"
+      :completeBoard="completeBoard"
+      :editBoard="editBoard"
+      :key="i"
+      :rowIndex="i"
       :rowData="row"
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+      :style="{ boxShadow: '0 2px 4px #D50000' }"
+    />
+  </div>
+  <div v-else class="puzzleBoard">
+    <PuzzleRow
+      v-for="(row, i) in completeBoard"
+      :originalBoard="originalBoard"
+      :completeBoard="completeBoard"
+      :editBoard="editBoard"
+      :key="i"
+      :rowIndex="i"
+      :rowData="row"
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
     />
   </div>
 </template>
@@ -53,6 +64,12 @@ export default {
   background: #ffffff20;
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0 0 4px var(--font-teal-transparent);
+  box-shadow: 0 0 4px #ffffff80;
+}
+
+.congrats {
+  text-align: center;
+  font-size: 64;
+  width: 100%;
 }
 </style>

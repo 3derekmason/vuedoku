@@ -9,6 +9,9 @@ export default {
   props: {
     activeValue: Number,
     toggleActive: Function,
+    completeBoard: Array,
+    editBoard: Function,
+    resetBoard: Function,
   },
 };
 </script>
@@ -20,10 +23,20 @@ export default {
         class="icon"
         src="../../../assets/undo-arrow.png"
         width="20"
-        alt="undo"
+        alt="resset"
+        @click="
+          () => {
+            this.resetBoard();
+          }
+        "
       />
     </div>
-    <NumberSelector :activeValue="activeValue" :toggleActive="toggleActive" />
+    <NumberSelector
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+      :completeBoard="completeBoard"
+      :editBoard="editBoard"
+    />
   </div>
 </template>
 

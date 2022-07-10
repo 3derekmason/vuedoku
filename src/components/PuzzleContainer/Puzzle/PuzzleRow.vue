@@ -8,13 +8,30 @@ export default {
   },
   props: {
     rowData: Array,
+    rowIndex: Number,
+    activeValue: Number,
+    toggleActive: Function,
+    originalBoard: Array,
+    completeBoard: Array,
+    editBoard: Function,
   },
 };
 </script>
 
 <template>
   <div class="puzzleRow">
-    <PuzzleCell v-for="i in rowData" :key="i" :value="i" />
+    <PuzzleCell
+      v-for="(digit, i) in rowData"
+      :key="i"
+      :originalBoard="originalBoard"
+      :completeBoard="completeBoard"
+      :editBoard="editBoard"
+      :rowIndex="rowIndex"
+      :cellIndex="i"
+      :value="digit"
+      :activeValue="activeValue"
+      :toggleActive="toggleActive"
+    />
   </div>
 </template>
 
