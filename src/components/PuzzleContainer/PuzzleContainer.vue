@@ -149,6 +149,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
+}
+.difficulty button {
+  height: 32px;
+  border: 0.5px solid #ffffff80;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-font-teal);
+}
+.difficulty button:hover {
+  color: var(--color-selected);
+  cursor: pointer;
+}
+.difficulty button:active {
+  border: 0.5px solid var(--color-selected);
 }
 </style>
