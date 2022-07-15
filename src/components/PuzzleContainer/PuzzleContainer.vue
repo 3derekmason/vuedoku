@@ -6,6 +6,8 @@ import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
 import GameTimer from "./GameTimer.vue";
 
+const api = "http://vuedoku-api.herokuapp.com/api/";
+
 export default {
   name: "PuzzleContainer",
   components: {
@@ -68,6 +70,21 @@ export default {
           this.editBoard([i, j], value);
         });
       });
+    },
+    getAllBoards() {
+      fetch(api)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    },
+    getRandomBoard() {
+      fetch(api + "random")
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    },
+    getDifficulty(string) {
+      fetch(api + string)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
     },
   },
   mounted() {
