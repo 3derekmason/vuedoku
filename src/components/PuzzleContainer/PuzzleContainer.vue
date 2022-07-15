@@ -90,9 +90,9 @@ export default {
       fetch(api + string)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           const index = Math.floor(Math.random() * data.length);
           this.buildGameBoard(data?.[index].game_board);
+          this.currentTime = 0;
         });
     },
   },
@@ -106,7 +106,10 @@ export default {
 <template>
   <div class="container">
     <div class="difficulty">
-      <button @click="this.getDifficulty('easy')">Click me</button>
+      <p>Choose puzzle difficulty:</p>
+      <button @click="this.getDifficulty('easy')">Easy</button>
+      <button @click="this.getDifficulty('medium')">Medium</button>
+      <button @click="this.getDifficulty('hard')">Hard</button>
     </div>
     <GameTimer :currentTime="this.currentTime" />
 
@@ -140,5 +143,12 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+}
+.difficulty {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 </style>
