@@ -19,7 +19,11 @@ export default {
         target="_blank"
         >UI</a
       >
-      <a href="https://derekmason.dev" target="_blank">UI + UX</a>
+      <a
+        href="https://medium.com/@derekmason/build-a-sudoku-app-with-vue-part-iii-game-ux-19c5ced5f924"
+        target="_blank"
+        >UI + UX</a
+      >
     </div>
   </div>
 </template>
