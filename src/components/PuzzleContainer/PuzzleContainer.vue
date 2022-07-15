@@ -6,7 +6,7 @@ import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
 import GameTimer from "./GameTimer.vue";
 
-const api = "http://vuedoku-api.herokuapp.com/api/";
+const api = "https://vuedoku-api.herokuapp.com/api/";
 
 export default {
   name: "PuzzleContainer",
