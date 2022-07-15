@@ -130,4 +130,18 @@ export default {
   font-weight: 500;
   color: var(--color-selected);
 }
+
+@media only screen and (max-width: 600px) {
+  .numberSelector {
+    width: 360px;
+  }
+  .numberSelector button {
+    font-size: 20px;
+  }
+  .numberSelector .selection {
+    width: 28px;
+    height: 100%;
+    border: none;
+  }
+}
 </style>

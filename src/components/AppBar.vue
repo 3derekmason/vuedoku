@@ -69,4 +69,15 @@ export default {
   box-shadow: none;
   transform: translateY(2px);
 }
+
+@media only screen and (max-width: 600px) {
+  .buttonRow a {
+    width: 56px;
+    font-size: 12px;
+  }
+  .buttonRow p {
+    width: 0px;
+    opacity: 0;
+  }
+}
 </style>

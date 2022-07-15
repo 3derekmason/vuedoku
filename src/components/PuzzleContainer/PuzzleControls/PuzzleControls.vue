@@ -77,4 +77,10 @@ export default {
     brightness(103%) contrast(102%);
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .puzzleControls {
+    gap: 8px;
+  }
+}
 </style>

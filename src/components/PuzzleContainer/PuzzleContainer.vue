@@ -165,4 +165,13 @@ export default {
 .difficulty button:active {
   border: 0.5px solid var(--color-selected);
 }
+
+@media only screen and (max-width: 600px) {
+  .difficulty {
+    font-size: 10px;
+  }
+  .difficulty button {
+    height: 24px;
+  }
+}
 </style>
