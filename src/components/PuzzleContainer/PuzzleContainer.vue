@@ -21,26 +21,26 @@ export default {
       currentTime: 0,
       completeTime: 0,
       originalBoard: [
-        [3, 0, 1, 0, 8, 0, 5, 7, 0],
-        [0, 8, 7, 3, 5, 9, 1, 0, 0],
-        [0, 0, 2, 7, 0, 4, 0, 0, 0],
-        [8, 0, 5, 4, 0, 0, 6, 9, 0],
-        [2, 1, 0, 9, 6, 0, 0, 0, 0],
-        [0, 0, 4, 0, 0, 8, 7, 1, 0],
-        [0, 0, 9, 6, 7, 3, 0, 5, 8],
-        [5, 3, 0, 1, 4, 2, 9, 6, 7],
-        [0, 0, 0, 0, 9, 0, 3, 4, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
       completeBoard: [
-        [3, 0, 1, 0, 8, 0, 5, 7, 0],
-        [0, 8, 7, 3, 5, 9, 1, 0, 0],
-        [0, 0, 2, 7, 0, 4, 0, 0, 0],
-        [8, 0, 5, 4, 0, 0, 6, 9, 0],
-        [2, 1, 0, 9, 6, 0, 0, 0, 0],
-        [0, 0, 4, 0, 0, 8, 7, 1, 0],
-        [0, 0, 9, 6, 7, 3, 0, 5, 8],
-        [5, 3, 0, 1, 4, 2, 9, 6, 7],
-        [0, 0, 0, 0, 9, 0, 3, 4, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
     };
   },
@@ -71,6 +71,14 @@ export default {
         });
       });
     },
+    buildGameBoard(game_board) {
+      this.originalBoard = game_board;
+      game_board.forEach((row, i) => {
+        row.forEach((value, j) => {
+          this.editBoard([i, j], value);
+        });
+      });
+    },
     getAllBoards() {
       fetch(api)
         .then((response) => response.json())
@@ -79,7 +87,10 @@ export default {
     getRandomBoard() {
       fetch(api + "random")
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          console.log(data.difficult);
+          this.buildGameBoard(data.game_board);
+        });
     },
     getDifficulty(string) {
       fetch(api + string)
@@ -88,6 +99,7 @@ export default {
     },
   },
   mounted() {
+    this.getRandomBoard();
     setInterval(this.startTimer, 1000);
   },
 };
