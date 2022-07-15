@@ -169,6 +169,7 @@ export default {
 @media only screen and (max-width: 600px) {
   .container {
     justify-content: flex-start;
+    gap: 16px;
   }
   .difficulty {
     font-size: 10px;
