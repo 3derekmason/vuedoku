@@ -79,23 +79,21 @@ export default {
         });
       });
     },
-    getAllBoards() {
-      fetch(api)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-    },
     getRandomBoard() {
       fetch(api + "random")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.difficult);
           this.buildGameBoard(data.game_board);
         });
     },
     getDifficulty(string) {
       fetch(api + string)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          console.log(data);
+          const index = Math.floor(Math.random() * data.length);
+          this.buildGameBoard(data?.[index].game_board);
+        });
     },
   },
   mounted() {
@@ -107,7 +105,11 @@ export default {
 
 <template>
   <div class="container">
+    <div class="difficulty">
+      <button @click="this.getDifficulty('easy')">Click me</button>
+    </div>
     <GameTimer :currentTime="this.currentTime" />
+
     <PuzzleBoard
       :activeValue="this.activeValue"
       :toggleActive="this.toggleActive"
