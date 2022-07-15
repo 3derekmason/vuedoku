@@ -167,6 +167,9 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
+  .container {
+    justify-content: flex-start;
+  }
   .difficulty {
     font-size: 10px;
   }

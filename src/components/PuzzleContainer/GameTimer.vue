@@ -29,10 +29,4 @@ export default {
   font-family: "Courier New", Courier, monospace;
   letter-spacing: 4px;
 }
-
-@media only screen and (max-width: 600px) {
-  .timer {
-    height: 40px;
-  }
-}
 </style>
