@@ -5,6 +5,7 @@ import validateGameBoard from "../util/validateGameBoard";
 import PuzzleBoard from "./Puzzle/PuzzleBoard.vue";
 import PuzzleControls from "./PuzzleControls/PuzzleControls.vue";
 import GameTimer from "./GameTimer.vue";
+import LoadingPuzzle from "../LoadingPuzzle.vue";
 
 const api = "https://vuedoku-api.herokuapp.com/api/";
 
@@ -14,9 +15,11 @@ export default {
     PuzzleBoard,
     PuzzleControls,
     GameTimer,
+    LoadingPuzzle,
   },
   data() {
     return {
+      loading: true,
       activeValue: 0,
       currentTime: 0,
       completeTime: 0,
@@ -84,6 +87,7 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.buildGameBoard(data.game_board);
+          this.loading = false;
         });
     },
     getDifficulty(string) {
@@ -104,7 +108,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-if="!loading">
     <div class="difficulty">
       <p>Choose puzzle difficulty:</p>
       <button @click="this.getDifficulty('easy')">Easy</button>
@@ -130,6 +134,7 @@ export default {
       :resetBoard="this.resetBoard"
     />
   </div>
+  <div v-else><LoadingPuzzle /></div>
 </template>
 
 <style scoped>
