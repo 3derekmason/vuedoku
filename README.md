@@ -1,9 +1,9 @@
 # Vuedoku: Build a Sudoku app with Vue
 
 <div align="center">
-<a href="" target="_blank">Part I: Game Logic</a> |
-<a href="" target="_blank">Part II: Game UI</a> |
-<a href="" target="_blank">Part III: Game UX</a>
+<a href="https://medium.com/@derekmason/hi-there-thank-you-for-reading-1686b0f33b82" target="_blank">Part I: Game Logic</a> |
+<a href="https://medium.com/@derekmason/build-a-sudoku-app-with-vue-part-ii-game-ui-fe9163814189" target="_blank">Part II: Game UI</a> |
+<a href="https://medium.com/@derekmason/build-a-sudoku-app-with-vue-part-iii-game-ux-19c5ced5f924" target="_blank">Part III: Game UX</a>
 </div>
 
 <br>
